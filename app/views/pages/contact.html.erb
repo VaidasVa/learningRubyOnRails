@@ -3,4 +3,27 @@
   <p>
     Contact details
   </p>
+  <%= form_with(id:"f1", url:root_path) do |form| %>
+    <%= form.text_field :name, placeholder: "your name" %><br>
+    <%= form.text_field :msg, placeholder: "your message" %><br>
+    <%= form.submit "Submit" %>
+    <% end %>
 </div>
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+      const form = document.getElementById("f1");
+
+      form.addEventListener("submit", function(event) {
+          event.preventDefault();
+
+          const name = form.querySelector('input[name="name"]').value;
+          const msg = form.querySelector('input[name="msg"]').value;
+
+          alert(`Name: ${name}\nMessage: ${msg}\nHas been submitted.`);
+
+          // form.submit();
+      });
+  });
+</script>
